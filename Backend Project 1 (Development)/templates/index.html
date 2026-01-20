@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Clone</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        textarea, input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .results { margin-top: 20px; padding: 15px; background: #e9ecef; border-left: 5px solid #007bff; }
+        .error { color: red; margin-top: 10px; }
+        li { margin-bottom: 5px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Regex Tester Clone</h2>
+    <form method="POST">
+        <label>Regular Expression:</label>
+        <input type="text" name="regex_pattern" placeholder="e.g. [a-zA-Z]+" value="{{ regex_pattern }}">
+        
+        <label>Test String:</label>
+        <textarea name="test_string" rows="5" placeholder="Enter your text here...">{{ test_string }}</textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if results is not none %}
+        <div class="results">
+            <h3>Match Results:</h3>
+            {% if results %}
+                <ul>
+                {% for match in results %}
+                    <li><strong>Match:</strong> {{ match }}</li>
+                {% endfor %}
+                </ul>
+                <p>Total matches found: {{ results|length }}</p>
+            {% else %}
+                <p>No matches found.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
