@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flipkart Review Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏸 Flipkart Badminton Review Sentiment Analyzer</h1>
+    <p>Enter a customer review to analyze its sentiment</p>
+
+    <form method="POST">
+        <textarea name="review" placeholder="Type review here..." required>{{ review }}</textarea>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    {% if sentiment %}
+        <div class="result">
+            <h2>Sentiment Result:</h2>
+            <p class="{{ 'positive' if 'Positive' in sentiment else 'negative' }}">
+                {{ sentiment }}
+            </p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
