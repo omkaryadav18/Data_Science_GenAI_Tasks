@@ -33,5 +33,11 @@ def index():
 
     return render_template("index.html", sentiment=sentiment, review=review)
 
+import mlflow.pyfunc
+
+model = mlflow.pyfunc.load_model(
+    "models:/FlipkartSentimentModel/Production"
+)
+
 if __name__ == "__main__":
     app.run(debug=True)

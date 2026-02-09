@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/ASUS/OneDrive/Desktop/Innomatics Research Lab/flipkart-sentiment/mlruns/1/models/m-b93879461a794a59831a1fba3a25a9db/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.9.0
+model_id: m-b93879461a794a59831a1fba3a25a9db
+model_size_bytes: 40710
+model_uuid: m-b93879461a794a59831a1fba3a25a9db
+prompts: null
+run_id: 5a553d568c3d498d93d7ab52857c89c4
+utc_time_created: '2026-02-09 05:02:17.334161'
